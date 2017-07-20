@@ -60,6 +60,6 @@ ul li {
 	flex: 1 1 50%;
 }
 
-ul li:hover {
+ul li:hover, ul li.active {
 	background: #eee;
 }
