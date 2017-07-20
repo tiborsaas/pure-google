@@ -1,0 +1,27 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; 
+}
+
+body, html {
+	height: 100%;
+}
+
+body {
+	/* Generated with http://gradient.quasi.ink */
+	background-size: cover;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAYAAAAGuM1UAAAAwElEQVQoU11PyQ2EMAy0uaFOJCqhMzrgEC3w4gMPTq9mdoPCRrJijeewdRxHMzNRVcH774G5Gfu+7w0Ayif7BnT6PR2GgQlBEPj4Y+BAZ6Zt2z4JztWlORJ+FFfquu610ivGu+k8z6+gaRq7rkuyLJMoil6rLMsi0zSReByHbNsmWte1resqRVHwDlSSJCRAMM+z3PdNI8y0qirDEIUkkJGEFeI4Zr/vOwVpmoqWZUkBXECGSxiGFMAgz3MKcDTwD4HfihaaPaStAAAAAElFTkSuQmCC");
+	background: linear-gradient(to bottom, #000000, #53346d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+input {
+	padding: 1rem;
+	width: 76.5%;
+	font-size: 1.62rem;
+}
