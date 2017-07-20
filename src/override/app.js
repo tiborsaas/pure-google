@@ -23,6 +23,11 @@ input.addEventListener('keyup', e => {
         console.log(e)
         updateSearch(value);
     }
+
+    if( e.key == 'Enter' ) {
+        let url = 'https://www.google.hu/search?site=&source=hp&q=' + input.value;
+        window.location.href = url;
+    }
 });
 
 function listener( rsp ) {
