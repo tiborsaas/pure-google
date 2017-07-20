@@ -1,3 +1,4 @@
+const suggestions = document.querySelector('ul');
 const input = document.querySelector('input');
 const suggestApi = document.querySelector('#suggest');
 let apiAccess = null;
@@ -5,6 +6,7 @@ let apiAccess = null;
 document.body.addEventListener('click', e => {
     e.preventDefault();
     input.focus();
+    removeSuggestions();
 })
 
 function updateSearch( term ) {
@@ -31,9 +33,13 @@ input.addEventListener('keyup', e => {
 });
 
 function listener( rsp ) {
-    console.log('response', rsp[1].map( item => {
-        return item[0];
-    }));
+    const suggestedListElements = rsp[1].map( item => `<li>${item[0]}</li>`);
+    suggestions.innerHTML = '';
+    suggestions.innerHTML = suggestedListElements.join('');
+}
+
+function removeSuggestions() {
+    suggestions.innerHTML = '';
 }
 
 function removeItem( node ) {

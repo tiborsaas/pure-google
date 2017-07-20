@@ -38,4 +38,28 @@ input {
 	padding: 1rem;
 	width: 76.5%;
 	font-size: 1.62rem;
+	border: none;
+	border-bottom: 1px solid #eee;
+}
+
+ul {
+	width: 76.5%;
+	list-style-type: none;
+	display: flex;
+	flex-wrap: wrap;
+	transition: all 1s ease;
+}
+
+ul li {
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+	padding: 0.5rem;
+	color: #333;
+	margin: 0;
+	flex: 1 1 50%;
+}
+
+ul li:hover {
+	background: #eee;
 }
