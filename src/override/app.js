@@ -3,7 +3,7 @@ const input = document.querySelector('input');
 const suggestApi = document.querySelector('#suggest');
 const directions = ['ArrowUp','ArrowDown','ArrowRight','ArrowLeft'];
 let apiAccess = null;
-let sIndex = 0;
+let sIndex = -1;
 
 document.body.addEventListener('click', e => {
     e.preventDefault();
@@ -33,8 +33,12 @@ input.addEventListener('keyup', e => {
         window.location.href = url;
     }
 
+    if( e.key == 'ArrowUp' ) {
+        highlightSuggestion('up');
+    }
+
     if( e.key == 'ArrowDown' ) {
-        highlightSuggestion();
+        highlightSuggestion('down');
     }
 });
 
@@ -44,16 +48,21 @@ function listener( rsp ) {
     suggestions.innerHTML = suggestedListElements.join('');
 }
 
-function highlightSuggestion() {
+function highlightSuggestion( dir ) {
     const suggList = document.querySelectorAll('li');
     suggList.forEach( element => {
         element.classList.remove('active');
     });
-    suggList[sIndex].classList.add('active');
+    sIndex = (dir == 'up') ? --sIndex : ++sIndex;
+    sIndex = sIndex%suggList.length;
+    suggList[getIndex()].classList.add('active');
+
     input.value = suggList[sIndex].innerText;
-    sIndex += 2;
-    sIndex = ( sIndex/2 == suggList.length/2 ) ? 1 : sIndex;
-    sIndex = ( sIndex >= suggList.length ) ? 0 : sIndex;
+}
+
+function getIndex() {
+    const suggList = document.querySelectorAll('li');
+    return ( sIndex < suggList.length / 2 ) ? sIndex * 2 : (sIndex - suggList.length / 2) * 2 + 1; 
 }
 
 function removeSuggestions() {
